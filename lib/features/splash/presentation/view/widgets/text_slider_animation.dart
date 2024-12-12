@@ -17,7 +17,7 @@ class TextSliderAnimation extends StatelessWidget {
         return SlideTransition(
           position: sliderAnimation,
           child: Text("Reed Free Books",
-              style: AppStyles.styleInconsolataRegular12(context),
+              style: AppStyles.styleRegular12(context),
               textAlign: TextAlign.center),
         );
       },

@@ -38,12 +38,21 @@ abstract class AppStyles {
     );
   }
 
-  static TextStyle styleInconsolataRegular12(context) {
+  static TextStyle styleRegular12(context) {
     return TextStyle(
       color: Colors.white,
       fontSize: getResponsiveFontSize(context, fontSize: 12),
       fontFamily: 'Inconsolata',
       fontWeight: FontWeight.w400,
+    );
+  }
+
+  static TextStyle styleSemiBolde18(context) {
+    return TextStyle(
+      color: Colors.white,
+      fontSize: getResponsiveFontSize(context, fontSize: 18),
+      fontFamily: 'Inconsolata',
+      fontWeight: FontWeight.w600,
     );
   }
 }
