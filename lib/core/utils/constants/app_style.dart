@@ -1,4 +1,3 @@
-import 'package:bookly_app/core/utils/constants/app_size_config.dart';
 import 'package:flutter/material.dart';
 
 double getResponsiveFontSize(BuildContext context, {required double fontSize}) {
@@ -11,9 +10,9 @@ double getResponsiveFontSize(BuildContext context, {required double fontSize}) {
 
 double getScaleFactor(BuildContext context) {
   double width = MediaQuery.sizeOf(context).width;
-  if (width < SizeConfig.tablet) {
+  if (width < 600) {
     return width / 400;
-  } else if (width < SizeConfig.desktop) {
+  } else if (width < 1200) {
     return width / 1000;
   } else {
     return width / 1500;
@@ -21,7 +20,6 @@ double getScaleFactor(BuildContext context) {
 }
 
 abstract class AppStyles {
-  AppStyles._();
   static TextStyle styleIBMRegular70(context) {
     return TextStyle(
       color: Colors.white,
