@@ -1,3 +1,5 @@
+import 'package:bookly_app/features/home/presentation/view/widgets/custom_aoo_bar.dart';
+import 'package:bookly_app/features/home/presentation/view/widgets/featured_book_list_view_item.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -6,8 +8,11 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home View'),
+      body: Column(
+        children: [
+          CustomAppBar(),
+          FeaturedBookListViewItem(),
+        ],
       ),
     );
   }

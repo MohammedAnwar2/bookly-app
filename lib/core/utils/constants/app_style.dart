@@ -20,10 +20,19 @@ double getScaleFactor(BuildContext context) {
 }
 
 abstract class AppStyles {
-  static TextStyle styleIBMRegular70(context) {
+  static TextStyle styleAguDisplayRegular70(context) {
     return TextStyle(
       color: Colors.white,
       fontSize: getResponsiveFontSize(context, fontSize: 70),
+      fontFamily: 'AguDisplay',
+      fontWeight: FontWeight.w400,
+    );
+  }
+
+  static TextStyle styleAguDisplayRegular20(context) {
+    return TextStyle(
+      color: Colors.white,
+      fontSize: getResponsiveFontSize(context, fontSize: 20),
       fontFamily: 'AguDisplay',
       fontWeight: FontWeight.w400,
     );

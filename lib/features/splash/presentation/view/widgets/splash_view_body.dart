@@ -39,7 +39,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text("Bookly",
-            style: AppStyles.styleIBMRegular70(context),
+            style: AppStyles.styleAguDisplayRegular70(context),
             textAlign: TextAlign.center),
         const SizedBox(height: 8),
         TextSliderAnimation(sliderAnimation: sliderAnimation)
