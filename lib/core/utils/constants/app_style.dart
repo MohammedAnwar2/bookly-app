@@ -1,3 +1,4 @@
+import 'package:bookly_app/core/utils/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 double getResponsiveFontSize(BuildContext context, {required double fontSize}) {
@@ -24,7 +25,7 @@ abstract class AppStyles {
     return TextStyle(
       color: Colors.white,
       fontSize: getResponsiveFontSize(context, fontSize: 70),
-      fontFamily: 'AguDisplay',
+      fontFamily: kFontFamilyAguDisplay,
       fontWeight: FontWeight.w400,
     );
   }
@@ -33,7 +34,7 @@ abstract class AppStyles {
     return TextStyle(
       color: Colors.white,
       fontSize: getResponsiveFontSize(context, fontSize: 20),
-      fontFamily: 'AguDisplay',
+      fontFamily: kFontFamilyAguDisplay,
       fontWeight: FontWeight.w400,
     );
   }
@@ -42,7 +43,7 @@ abstract class AppStyles {
     return TextStyle(
       color: Colors.white,
       fontSize: getResponsiveFontSize(context, fontSize: 12),
-      fontFamily: 'Montserrat',
+      fontFamily: kFontFamilyMontserrat,
       fontWeight: FontWeight.w400,
     );
   }
@@ -51,7 +52,7 @@ abstract class AppStyles {
     return TextStyle(
       color: Colors.white,
       fontSize: getResponsiveFontSize(context, fontSize: 18),
-      fontFamily: 'Montserrat',
+      fontFamily: kFontFamilyMontserrat,
       fontWeight: FontWeight.w600,
     );
   }
