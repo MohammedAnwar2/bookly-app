@@ -56,4 +56,31 @@ abstract class AppStyles {
       fontWeight: FontWeight.w600,
     );
   }
+
+  static TextStyle styleSemiBolde20(context) {
+    return TextStyle(
+      color: Colors.white,
+      fontSize: getResponsiveFontSize(context, fontSize: 20),
+      fontFamily: kFontFamilyMontserrat,
+      fontWeight: FontWeight.w600,
+    );
+  }
+
+  static TextStyle styleRegular20(context) {
+    return TextStyle(
+      color: Colors.white,
+      fontSize: getResponsiveFontSize(context, fontSize: 20),
+      fontFamily: kFontFamilyMontserrat,
+      fontWeight: FontWeight.w400,
+    );
+  }
+
+  static TextStyle styleMedium14(context) {
+    return TextStyle(
+      color: Colors.white,
+      fontSize: getResponsiveFontSize(context, fontSize: 14),
+      fontFamily: kFontFamilyMontserrat,
+      fontWeight: FontWeight.w500,
+    );
+  }
 }
