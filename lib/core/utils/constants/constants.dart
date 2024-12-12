@@ -1,1 +1,1 @@
-const kTransationDuration = Duration(seconds: 1);
+const kTransationDuration = Duration(milliseconds: 750);

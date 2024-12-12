@@ -42,7 +42,7 @@ abstract class AppStyles {
     return TextStyle(
       color: Colors.white,
       fontSize: getResponsiveFontSize(context, fontSize: 12),
-      fontFamily: 'Inconsolata',
+      fontFamily: 'Montserrat',
       fontWeight: FontWeight.w400,
     );
   }
@@ -51,7 +51,7 @@ abstract class AppStyles {
     return TextStyle(
       color: Colors.white,
       fontSize: getResponsiveFontSize(context, fontSize: 18),
-      fontFamily: 'Inconsolata',
+      fontFamily: 'Montserrat',
       fontWeight: FontWeight.w600,
     );
   }
