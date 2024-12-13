@@ -1,4 +1,4 @@
-import 'package:bookly_app/core/utils/constants/constants.dart';
+import 'package:bookly_app/core/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 double getResponsiveFontSize(BuildContext context, {required double fontSize}) {

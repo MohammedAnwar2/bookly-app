@@ -1,5 +1,4 @@
-import 'package:bookly_app/core/utils/constants/app_colors.dart';
-import 'package:bookly_app/core/utils/constants/app_style.dart';
+import 'package:bookly_app/core/utils/app_style.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
