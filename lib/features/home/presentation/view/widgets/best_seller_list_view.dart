@@ -8,15 +8,37 @@ class BestSellerListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-      itemCount: 50,
-      itemBuilder: (BuildContext context, int index) {
-        return const Padding(
+    return Column(
+      children: List.generate(
+        50,
+        (index) => const Padding(
           padding: EdgeInsets.only(bottom: 16),
           child: BestSellerListViewItem(),
-        );
-      },
+        ),
+      ),
     );
   }
 }
+
+
+
+// class BestSellerListView extends StatelessWidget {
+//   const BestSellerListView({
+//     super.key,
+//   });
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return ListView.builder(
+//       physics: const NeverScrollableScrollPhysics(),
+//       padding: EdgeInsets.zero,
+//       itemCount: 50,
+//       itemBuilder: (BuildContext context, int index) {
+//         return const Padding(
+//           padding: EdgeInsets.only(bottom: 16),
+//           child: BestSellerListViewItem(),
+//         );
+//       },
+//     );
+//   }
+// }
