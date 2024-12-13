@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomHomeViewDetails extends StatelessWidget {
-  const CustomHomeViewDetails({
+class CustomHomeViewDetailsAppBar extends StatelessWidget {
+  const CustomHomeViewDetailsAppBar({
     super.key,
   });
 
