@@ -1,3 +1,5 @@
+import 'package:bookly_app/core/class/either_class.dart';
+import 'package:bookly_app/core/class/error.dart';
 import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
 
 //! what will happen in feature
@@ -5,6 +7,6 @@ import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
 //* 2 - get all the news books
 // we should convert all what will happens as abstract class with functions
 abstract class HomeRepo {
-  Future<List<BookEntity>> fetchFeaturedBooks();
-  Future<List<BookEntity>> fetchNewsBooks();
+  Future<Either<Fiauler, List<BookEntity>>> fetchFeaturedBooks();
+  Future<Either<Fiauler, List<BookEntity>>> fetchNewsBooks();
 }
