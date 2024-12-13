@@ -20,8 +20,6 @@ class BestSellerListView extends StatelessWidget {
   }
 }
 
-
-
 // class BestSellerListView extends StatelessWidget {
 //   const BestSellerListView({
 //     super.key,
