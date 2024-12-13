@@ -27,7 +27,7 @@ class ActionButton extends StatelessWidget {
           Expanded(
             child: CustomButtom(
               text: "Free preview",
-              backgroundColor: AppColors.yellow,
+              backgroundColor: AppColors.orange,
               textColor: AppColors.white,
               borderRadius: BorderRadius.only(
                 bottomRight: Radius.circular(16),

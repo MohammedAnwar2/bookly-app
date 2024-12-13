@@ -1,3 +1,4 @@
+import 'package:bookly_app/core/shared/animated_button.dart';
 import 'package:bookly_app/core/utils/app_style.dart';
 import 'package:flutter/material.dart';
 
@@ -15,28 +16,21 @@ class CustomButtom extends StatelessWidget {
   final String text;
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      style: TextButton.styleFrom(
-          backgroundColor: backgroundColor,
-          shape: RoundedRectangleBorder(
-              borderRadius:
-                  borderRadius ?? const BorderRadius.all(Radius.circular(16)))),
-      onPressed: () {},
-      child: Text(text,
-          style:
-              AppStyles.styleSemiBolde18(context).copyWith(color: textColor)),
+    return AnimatedButton(
+      child: (isHaver) => SizedBox(
+        height: 48,
+        child: TextButton(
+          style: TextButton.styleFrom(
+              backgroundColor: backgroundColor,
+              shape: RoundedRectangleBorder(
+                  borderRadius: borderRadius ??
+                      const BorderRadius.all(Radius.circular(16)))),
+          onPressed: () {},
+          child: Text(text,
+              style: AppStyles.styleSemiBolde16(context)
+                  .copyWith(color: textColor)),
+        ),
+      ),
     );
-    // return Container(
-    //   alignment: Alignment.center,
-    //   height: 40,
-    //   decoration: const BoxDecoration(
-    //     color: AppColors.white,
-    //     borderRadius: BorderRadius.only(
-    // bottomLeft: Radius.circular(16),
-    // topLeft: Radius.circular(16),
-    //     ),
-    //   ),
-    //   child: const Text("19.99\$"),
-    // );
   }
 }

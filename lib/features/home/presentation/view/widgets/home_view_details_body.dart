@@ -15,27 +15,29 @@ class HomeViewDetailsBody extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30),
-          child: Column(
-            children: [
-              const CustomHomeViewDetails(),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: width * .2),
-                child: const CustomBookImage(),
-              ),
-              const SizedBox(height: 30),
-              Text("The Jungle Book",
-                  style: AppStyles.styleSemiBold25(context)),
-              Opacity(
-                opacity: 0.7,
-                child: Text("Rudyard Kipling",
-                    style: AppStyles.styleSemiBolde18(context)
-                        .copyWith(fontStyle: FontStyle.italic)),
-              ),
-              const SizedBox(height: 18),
-              const BookRating(),
-              const SizedBox(height: 20),
-              const ActionButton()
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                const CustomHomeViewDetails(),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: width * .2),
+                  child: const CustomBookImage(),
+                ),
+                const SizedBox(height: 30),
+                Text("The Jungle Book",
+                    style: AppStyles.styleSemiBold25(context)),
+                Opacity(
+                  opacity: 0.7,
+                  child: Text("Rudyard Kipling",
+                      style: AppStyles.styleSemiBolde18(context)
+                          .copyWith(fontStyle: FontStyle.italic)),
+                ),
+                const SizedBox(height: 18),
+                const BookRating(),
+                const SizedBox(height: 20),
+                const ActionButton()
+              ],
+            ),
           ),
         ),
       ),
