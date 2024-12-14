@@ -1,4 +1,4 @@
-import 'package:bookly_app/core/utils/api_services.dart';
+import 'package:bookly_app/core/service/api_services.dart';
 import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
 
@@ -13,8 +13,8 @@ class HomeRemoteDataSourceImp extends HomeRemoteDataSource {
   HomeRemoteDataSourceImp(this.apiServices);
   @override
   Future<List<BookEntity>> fetchFeaturedBooks() async {
-    Map<String, dynamic> data =
-        await apiServices.get(endpoint: 'volumes?q=programming&Filtering=free-ebooks');
+    Map<String, dynamic> data = await apiServices.get(
+        endpoint: 'volumes?q=programming&Filtering=free-ebooks');
     List<BookEntity> books = getBoxList(data);
     return books;
   }
@@ -29,9 +29,9 @@ class HomeRemoteDataSourceImp extends HomeRemoteDataSource {
   }
 
   @override
-  Future<List<BookEntity>> fetchNewestBooks() async{
-    Map<String, dynamic> data =
-        await apiServices.get(endpoint: 'volumes?q=programming&Filtering=free-ebooks&sorting=newest');
+  Future<List<BookEntity>> fetchNewestBooks() async {
+    Map<String, dynamic> data = await apiServices.get(
+        endpoint: 'volumes?q=programming&Filtering=free-ebooks&sorting=newest');
     List<BookEntity> books = getBoxList(data);
     return books;
   }
