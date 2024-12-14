@@ -5,8 +5,8 @@ import 'package:hive_flutter/adapters.dart';
 class InitializationService {
   Future<void> initialize() async {
     await Hive.initFlutter();
-    await Hive.openBox(kFeaturedBox);
-    await Hive.openBox(kNewestdBox);
+    await Hive.openBox<BookEntity>(kFeaturedBox);
+    await Hive.openBox<BookEntity>(kNewestdBox);
     Hive.registerAdapter(BookEntityAdapter());
   }
 }
