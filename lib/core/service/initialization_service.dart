@@ -6,6 +6,7 @@ class InitializationService {
   Future<void> initialize() async {
     await Hive.initFlutter();
     await Hive.openBox(kFeaturedBox);
+    await Hive.openBox(kNewestdBox);
     Hive.registerAdapter(BookEntityAdapter());
   }
 }
