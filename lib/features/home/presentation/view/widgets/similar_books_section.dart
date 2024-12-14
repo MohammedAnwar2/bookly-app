@@ -18,7 +18,7 @@ class SimilarBooksSection extends StatelessWidget {
           height: MediaQuery.sizeOf(context).height * .2,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: 20,
+            itemCount: 50,
             itemBuilder: (BuildContext context, int index) {
               return const Padding(
                 padding: EdgeInsetsDirectional.only(start: 12),

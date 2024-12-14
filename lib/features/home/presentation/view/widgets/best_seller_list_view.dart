@@ -8,17 +8,38 @@ class BestSellerListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: List.generate(
-        50,
-        (index) => const Padding(
-          padding: EdgeInsets.only(bottom: 16),
+    return SliverList.builder(
+      itemCount: 50,
+      itemBuilder: (BuildContext context, int index) {
+        return const Padding(
+          padding: EdgeInsets.only(left: 30, right: 30, top: 16),
           child: BestSellerListViewItem(),
-        ),
-      ),
+        );
+      },
     );
   }
 }
+
+
+
+// class BestSellerListView extends StatelessWidget {
+//   const BestSellerListView({
+//     super.key,
+//   });
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Column(
+//       children: List.generate(
+//         50,
+//         (index) => const Padding(
+//           padding: EdgeInsets.only(bottom: 16),
+//           child: BestSellerListViewItem(),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 // class BestSellerListView extends StatelessWidget {
 //   const BestSellerListView({
