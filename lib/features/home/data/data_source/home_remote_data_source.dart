@@ -28,6 +28,7 @@ class HomeRemoteDataSourceImp extends HomeRemoteDataSource {
     Map<String, dynamic> data = await apiServices.get(
         endpoint: 'volumes?q=programming&Filtering=free-ebooks&sorting=newest');
     List<BookEntity> books = getBoxList(data);
+    saveBooksData(books, kFeaturedBox);
     return books;
   }
 
