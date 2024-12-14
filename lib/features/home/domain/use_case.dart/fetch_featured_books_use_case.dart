@@ -10,7 +10,7 @@ class FetchFeaturedBooksUseCase extends UseCase<List<BookEntity>, NoParam> {
   FetchFeaturedBooksUseCase({required this.homeRepo});
 
   @override
-  Future<Either<Fiauler, List<BookEntity>>> call([NoParam? param]) async {
+  Future<Either<Failure, List<BookEntity>>> call([NoParam? param]) async {
     // check permissions
     return await homeRepo.fetchFeaturedBooks();
   }

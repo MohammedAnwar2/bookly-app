@@ -7,6 +7,6 @@ import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
 //* 2 - get all the news books
 // we should convert all what will happens as abstract class with functions
 abstract class HomeRepo {
-  Future<Either<Fiauler, List<BookEntity>>> fetchFeaturedBooks();
-  Future<Either<Fiauler, List<BookEntity>>> fetchNewestBooks();
+  Future<Either<Failure, List<BookEntity>>> fetchFeaturedBooks();
+  Future<Either<Failure, List<BookEntity>>> fetchNewestBooks();
 }
