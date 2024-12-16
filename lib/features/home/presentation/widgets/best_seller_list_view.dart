@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/home/presentation/view/widgets/best_seller_list_view_items.dart';
+import 'package:bookly_app/features/home/presentation/widgets/best_seller_list_view_items.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerListView extends StatelessWidget {
@@ -19,8 +19,6 @@ class BestSellerListView extends StatelessWidget {
     );
   }
 }
-
-
 
 // class BestSellerListView extends StatelessWidget {
 //   const BestSellerListView({
