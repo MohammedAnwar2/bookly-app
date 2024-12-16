@@ -4,14 +4,14 @@ import 'package:bookly_app/core/use_case/use_cases.dart';
 import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
 import 'package:bookly_app/features/home/domain/repo/home_repo.dart';
 
-class FetchFeaturedBooksUseCase extends UseCase<List<BookEntity>, NoParam> {
+class FetchFeaturedBooksUseCase extends UseCase<List<BookEntity>, int> {
   final HomeRepo homeRepo;
 
   FetchFeaturedBooksUseCase({required this.homeRepo});
 
   @override
-  Future<Either<Failure, List<BookEntity>>> call([NoParam? param]) async {
+  Future<Either<Failure, List<BookEntity>>> call([int param = 0]) async {
     // check permissions
-    return await homeRepo.fetchFeaturedBooks();
+    return await homeRepo.fetchFeaturedBooks(pageNumer: param);
   }
 }
