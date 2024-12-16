@@ -9,7 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
-  InitializationService().initialize;
+  WidgetsFlutterBinding.ensureInitialized();
+  await InitializationService.initialize();
   runApp(const BooklyApp());
 }
 
@@ -25,7 +26,7 @@ class BooklyApp extends StatelessWidget {
             FetchFeaturedBooksUseCase(
               homeRepo: getIt.get<HomeRepoImp>(),
             ),
-          ),
+          )..fetchFeaturedBooks(),
         ),
       ],
       child: MaterialApp.router(

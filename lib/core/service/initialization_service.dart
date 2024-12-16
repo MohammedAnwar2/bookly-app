@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 
 class InitializationService {
-  Future<void> initialize() async {
+  static Future<void> initialize() async {
     await Hive.initFlutter();
     await Hive.openBox<BookEntity>(kFeaturedBox);
     await Hive.openBox<BookEntity>(kNewestdBox);
