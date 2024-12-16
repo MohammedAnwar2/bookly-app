@@ -22,6 +22,7 @@ final class FeaturedBookSuccess extends FeaturedBookState {
 
 final class FeaturedBookFailure extends FeaturedBookState {
   final String errorMessage;
+
   FeaturedBookFailure(this.errorMessage);
   @override
   String toString() => 'Failure State';

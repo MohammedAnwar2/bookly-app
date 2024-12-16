@@ -13,6 +13,7 @@ class FeaturedBookCubit extends Cubit<FeaturedBookState> {
     var response = await featuredBooksUseCase.call();
     response.fold(
       (failure) {
+        print("===========>> ${failure.message}");
         emit(FeaturedBookFailure(failure.message));
       },
       (bookList) {
