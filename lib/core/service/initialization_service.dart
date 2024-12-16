@@ -8,9 +8,9 @@ import 'package:hive_flutter/adapters.dart';
 class InitializationService {
   static Future<void> initialize() async {
     await Hive.initFlutter();
+    Hive.registerAdapter(BookEntityAdapter());
     await Hive.openBox<BookEntity>(kFeaturedBox);
     await Hive.openBox<BookEntity>(kNewestdBox);
-    Hive.registerAdapter(BookEntityAdapter());
     Bloc.observer = MyBlocObserver();
     setupServersLocator();
   }
