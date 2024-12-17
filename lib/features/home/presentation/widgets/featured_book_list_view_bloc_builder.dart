@@ -24,10 +24,14 @@ class _FeaturedBookListViewBlocBuilderState
         if (state is FeaturedBookSuccess) {
           books.addAll(state.bookList);
         }
+        if (state is FeaturedBookPaginationFailure) {
+          show(context, state.errorMessage);
+        }
       },
       builder: (context, state) {
         if (state is FeaturedBookSuccess ||
-            state is FeaturedBookPaginationLoading) {
+            state is FeaturedBookPaginationLoading ||
+            state is FeaturedBookPaginationFailure) {
           return FeaturedBookListView(books: books);
         } else if (state is FeaturedBookFailure) {
           return Center(child: Text(state.errorMessage));
@@ -37,4 +41,22 @@ class _FeaturedBookListViewBlocBuilderState
       },
     );
   }
+}
+
+void show(BuildContext context, String message) {
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(
+        message,
+        style: TextStyle(color: Colors.white),
+      ),
+      backgroundColor: Colors.red,
+      duration: Duration(seconds: 3),
+      behavior: SnackBarBehavior.floating,
+      margin: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+    ),
+  );
 }

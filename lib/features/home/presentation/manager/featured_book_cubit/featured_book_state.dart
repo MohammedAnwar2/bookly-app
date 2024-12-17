@@ -18,6 +18,14 @@ final class FeaturedBookPaginationLoading extends FeaturedBookState {
   String toString() => 'Pagination Loading State';
 }
 
+final class FeaturedBookPaginationFailure extends FeaturedBookState {
+  final String errorMessage;
+
+  FeaturedBookPaginationFailure(this.errorMessage);
+  @override
+  String toString() => 'Pagination Failure State';
+}
+
 final class FeaturedBookSuccess extends FeaturedBookState {
   final List<BookEntity> bookList;
   FeaturedBookSuccess(this.bookList);
