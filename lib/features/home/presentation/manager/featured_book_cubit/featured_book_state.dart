@@ -13,6 +13,11 @@ final class FeaturedBookLoading extends FeaturedBookState {
   String toString() => 'Loading State';
 }
 
+final class FeaturedBookPaginationLoading extends FeaturedBookState {
+  @override
+  String toString() => 'Pagination Loading State';
+}
+
 final class FeaturedBookSuccess extends FeaturedBookState {
   final List<BookEntity> bookList;
   FeaturedBookSuccess(this.bookList);

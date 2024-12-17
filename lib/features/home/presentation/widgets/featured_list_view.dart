@@ -14,18 +14,23 @@ class FeaturedBookListView extends StatefulWidget {
 class _FeaturedBookListViewState extends State<FeaturedBookListView> {
   final ScrollController _scrollController = ScrollController();
   int nextPage = 1;
+  bool isLoading = false;
   @override
   void initState() {
     super.initState();
     _scrollController.addListener(_onScroll);
   }
 
-  void _onScroll() {
+  void _onScroll() async {
     final currentPossition = _scrollController.position.pixels;
     final maxScrollLength = _scrollController.position.maxScrollExtent;
     if (currentPossition >= maxScrollLength * 0.7) {
-      BlocProvider.of<FeaturedBookCubit>(context)
-          .fetchFeaturedBooks(pageNumber: nextPage++);
+      if (!isLoading) {
+        isLoading = true;
+        await BlocProvider.of<FeaturedBookCubit>(context)
+            .fetchFeaturedBooks(pageNumber: nextPage++);
+        isLoading = false;
+      }
     }
   }
 
