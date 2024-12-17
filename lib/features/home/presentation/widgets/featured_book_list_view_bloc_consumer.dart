@@ -1,21 +1,22 @@
+import 'package:bookly_app/core/utils/functions/custom_snac_bar_error.dart';
 import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
 import 'package:bookly_app/features/home/presentation/manager/featured_book_cubit/featured_book_cubit.dart';
 import 'package:bookly_app/features/home/presentation/widgets/featured_list_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class FeaturedBookListViewBlocBuilder extends StatefulWidget {
-  const FeaturedBookListViewBlocBuilder({
+class FeaturedBookListViewBlocConsumer extends StatefulWidget {
+  const FeaturedBookListViewBlocConsumer({
     super.key,
   });
 
   @override
-  State<FeaturedBookListViewBlocBuilder> createState() =>
-      _FeaturedBookListViewBlocBuilderState();
+  State<FeaturedBookListViewBlocConsumer> createState() =>
+      _FeaturedBookListViewBlocConsumerState();
 }
 
-class _FeaturedBookListViewBlocBuilderState
-    extends State<FeaturedBookListViewBlocBuilder> {
+class _FeaturedBookListViewBlocConsumerState
+    extends State<FeaturedBookListViewBlocConsumer> {
   final List<BookEntity> books = [];
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class _FeaturedBookListViewBlocBuilderState
           books.addAll(state.bookList);
         }
         if (state is FeaturedBookPaginationFailure) {
-          show(context, state.errorMessage);
+          showErrorSnackBar(context, state.errorMessage);
         }
       },
       builder: (context, state) {
@@ -41,22 +42,4 @@ class _FeaturedBookListViewBlocBuilderState
       },
     );
   }
-}
-
-void show(BuildContext context, String message) {
-  ScaffoldMessenger.of(context).showSnackBar(
-    SnackBar(
-      content: Text(
-        message,
-        style: TextStyle(color: Colors.white),
-      ),
-      backgroundColor: Colors.red,
-      duration: Duration(seconds: 3),
-      behavior: SnackBarBehavior.floating,
-      margin: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-      ),
-    ),
-  );
 }
