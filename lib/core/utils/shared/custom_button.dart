@@ -1,4 +1,4 @@
-import 'package:bookly_app/core/shared/animated_button.dart';
+import 'package:bookly_app/core/utils/shared/animated_button.dart';
 import 'package:bookly_app/core/utils/app_style.dart';
 import 'package:flutter/material.dart';
 
