@@ -2,6 +2,7 @@ import 'package:bookly_app/core/utils/functions/custom_snac_bar_error.dart';
 import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
 import 'package:bookly_app/features/home/presentation/manager/featured_book_cubit/featured_book_cubit.dart';
 import 'package:bookly_app/features/home/presentation/widgets/featured_list_view.dart';
+import 'package:bookly_app/features/home/presentation/widgets/featured_list_view_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -37,7 +38,7 @@ class _FeaturedBookListViewBlocConsumerState
         } else if (state is FeaturedBookFailure) {
           return Center(child: Text(state.errorMessage));
         } else {
-          return Center(child: CircularProgressIndicator());
+          return FeaturedBookListViewLoafingIndicator();
         }
       },
     );
