@@ -17,26 +17,27 @@ class SearchViewBody extends StatelessWidget {
           SizedBox(height: 10),
           Text("Best Seller", style: AppStyles.styleSemiBolde18(context)),
           SizedBox(height: 20),
-          ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: 50,
-            itemBuilder: (BuildContext context, int index) {
-              return Padding(
-                padding: EdgeInsetsDirectional.zero,
-                // padding: EdgeInsetsDirectional.only(
-                //     start: 12, end: widget.books.length - 1 == index ? 24 : 0),
-                child: GestureDetector(
-                  onTap: () {
-                    // BookEntity book = widget.books[index];
-                    // book.bookId = book.bookId + book.bookId;
-                    // GoRouter.of(context)
-                    //     .push(AppRouter.homeViewDetails, extra: book);
-                  },
-                  // child: CustomBookImage(
-                  //     imageUrl: widget.books[index].image ?? "", id: '1'),
-                ),
-              );
-            },
+          Expanded(
+            child: ListView.builder(
+              itemCount: 50,
+              itemBuilder: (BuildContext context, int index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: GestureDetector(
+                    onTap: () {
+                      // BookEntity book = widget.books[index];
+                      // book.bookId = book.bookId + book.bookId;
+                      // GoRouter.of(context)
+                      //     .push(AppRouter.homeViewDetails, extra: book);
+                    },
+                    child: CustomBookImage(
+                        imageUrl:
+                            "http://books.google.com/books/content?id=BwsDAAAAIAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+                        id: '1'),
+                  ),
+                );
+              },
+            ),
           )
         ],
       ),

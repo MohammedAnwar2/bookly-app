@@ -4,3 +4,4 @@ const kFontFamilyAguDisplay = 'AguDisplay';
 const kFeaturedBox = 'k_featured_box';
 const kNewestdBox = 'k_newest_box';
 const kSimilarBox = 'k_similar_box';
+const kSearchBox = 'k_search_box';
