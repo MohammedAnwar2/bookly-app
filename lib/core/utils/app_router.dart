@@ -5,6 +5,7 @@ import 'package:bookly_app/features/home/domain/use_case.dart/fetch_similar_book
 import 'package:bookly_app/features/home/presentation/manager/similar_book_cubit/similar_book_cubit.dart';
 import 'package:bookly_app/features/home/presentation/view/home_view.dart';
 import 'package:bookly_app/features/home/presentation/view/home_view_details.dart';
+import 'package:bookly_app/features/search/presentation/pages/search_view.dart';
 import 'package:bookly_app/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -13,6 +14,7 @@ import 'package:go_router/go_router.dart';
 abstract class AppRouter {
   static const String homeView = '/home_view';
   static const String homeViewDetails = '/home_view_details';
+  static const String searchView = '/search_view';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -32,6 +34,10 @@ abstract class AppRouter {
             book: state.extra as BookEntity,
           ),
         ),
+      ),
+      GoRoute(
+        path: searchView,
+        builder: (context, state) => const SearchView(),
       ),
     ],
   );
