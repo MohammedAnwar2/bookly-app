@@ -1,6 +1,4 @@
 import 'package:bookly_app/core/utils/app_style.dart';
-import 'package:bookly_app/features/home/presentation/widgets/custom_book_item.dart';
-import 'package:bookly_app/features/search/presentation/widgets/another_items_search_list_view.dart';
 import 'package:bookly_app/features/search/presentation/widgets/another_items_search_list_view_bloc_consumer.dart';
 import 'package:bookly_app/features/search/presentation/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +15,7 @@ class SearchViewBody extends StatelessWidget {
         children: [
           CustomTextFormField(),
           SizedBox(height: 10),
-          Text("Best Seller", style: AppStyles.styleSemiBolde18(context)),
+          Text("Another Books", style: AppStyles.styleSemiBolde18(context)),
           SizedBox(height: 20),
           Expanded(
             child: AnotherItemSearchListViewBlocConsumer(),

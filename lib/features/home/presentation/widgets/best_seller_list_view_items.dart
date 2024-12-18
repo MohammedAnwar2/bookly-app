@@ -4,7 +4,7 @@ import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'book_rating.dart';
+import '../../../../core/utils/shared/book_rating.dart';
 
 class BestSellerListViewItem extends StatelessWidget {
   const BestSellerListViewItem({
