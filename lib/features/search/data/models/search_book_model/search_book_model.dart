@@ -1,4 +1,3 @@
-import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
 import 'package:bookly_app/features/search/domain/entities/search_book_entities.dart';
 
 import 'access_info.dart';
@@ -23,14 +22,15 @@ class SearchBookModel extends SearchBookEntities {
     this.saleInfo,
     this.accessInfo,
   }) : super(
-            bookId: '',
-            image: '',
-            title: '',
-            authorName: '',
-            price: null,
-            rating: null,
-            ratingCount: null,
-            previewLink: '');
+          bookId: id!,
+          image: volumeInfo?.imageLinks?.thumbnail ?? "",
+          title: volumeInfo!.title!,
+          authorName: volumeInfo.authors?.first ?? "",
+          price: 0.0,
+          rating: volumeInfo.averageRating,
+          ratingCount: volumeInfo.ratingsCount,
+          previewLink: volumeInfo.previewLink,
+        );
 
   factory SearchBookModel.fromJson(Map<String, dynamic> json) {
     return SearchBookModel(
