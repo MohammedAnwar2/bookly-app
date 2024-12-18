@@ -20,11 +20,19 @@ class _CustomFadingWidgetState extends State<CustomFadingWidget>
         Tween<double>(begin: 0.2, end: 0.8).animate(animationController);
     animation.addListener(
       () {
-        setState(() {});
+        if (mounted) {
+          setState(() {});
+        }
       },
     );
     animationController.repeat(reverse: true);
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
   }
 
   @override
