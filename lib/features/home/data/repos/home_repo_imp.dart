@@ -33,14 +33,16 @@ class HomeRepoImp extends HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<BookEntity>>> fetchNewestBooks() async {
+  Future<Either<Failure, List<BookEntity>>> fetchNewestBooks(
+      {required int pageNumer}) async {
     try {
       List<BookEntity> booksList;
-      booksList = homeLocalDataSource.fetchNewestBooks();
+      booksList = homeLocalDataSource.fetchNewestBooks(pageNumber: pageNumer);
       if (booksList.isNotEmpty) {
         return Either.right(booksList);
       }
-      booksList = await homeRemoteDataSource.fetchNewestBooks();
+      booksList =
+          await homeRemoteDataSource.fetchNewestBooks(pageNumber: pageNumer);
       return Either.right(booksList);
     } catch (e) {
       if (e is DioException) {
