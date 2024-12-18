@@ -1,3 +1,5 @@
+import 'package:bookly_app/core/utils/extentions.dart';
+
 import 'dimensions.dart';
 import 'image_links.dart';
 import 'panelization_summary.dart';
@@ -9,8 +11,8 @@ class VolumeInfo {
   String? publisher;
   String? publishedDate;
   ReadingModes? readingModes;
-  int? pageCount;
-  int? printedPageCount;
+  num? pageCount;
+  num? printedPageCount;
   Dimensions? dimensions;
   String? printType;
   String? maturityRating;
@@ -46,15 +48,15 @@ class VolumeInfo {
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
         title: json['title'] as String?,
-        authors: json['authors'] as List<String>?,
+        authors: (json['authors'] as List<dynamic>?).toStringList(),
         publisher: json['publisher'] as String?,
         publishedDate: json['publishedDate'] as String?,
         readingModes: json['readingModes'] == null
             ? null
             : ReadingModes.fromJson(
                 json['readingModes'] as Map<String, dynamic>),
-        pageCount: json['pageCount'] as int?,
-        printedPageCount: json['printedPageCount'] as int?,
+        pageCount: json['pageCount'] as num?,
+        printedPageCount: json['printedPageCount'] as num?,
         dimensions: json['dimensions'] == null
             ? null
             : Dimensions.fromJson(json['dimensions'] as Map<String, dynamic>),
