@@ -1,4 +1,4 @@
-part of 'search_cubit.dart';
+part of 'all_books_cubit.dart';
 
 abstract class AllBooksState {
   const AllBooksState();
