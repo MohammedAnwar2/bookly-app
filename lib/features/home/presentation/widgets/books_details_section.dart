@@ -38,7 +38,7 @@ class BooksDetailsSection extends StatelessWidget {
         BookRating(
             ratingNumber: book.ratingCount ?? 0, ratingStar: book.rating ?? 0),
         const SizedBox(height: 20),
-        const ActionButton(),
+        ActionButton(book: book),
       ],
     );
   }

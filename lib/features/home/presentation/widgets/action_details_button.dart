@@ -1,15 +1,15 @@
-import 'package:bookly_app/core/utils/functions/custom_snac_bar_error.dart';
 import 'package:bookly_app/core/utils/functions/custom_url_luncher.dart';
 import 'package:bookly_app/core/utils/shared/custom_button.dart';
 import 'package:bookly_app/core/utils/app_colors.dart';
+import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class ActionButton extends StatelessWidget {
   const ActionButton({
     super.key,
+    required this.book,
   });
-
+  final BookEntity book;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -30,7 +30,8 @@ class ActionButton extends StatelessWidget {
           Expanded(
             child: CustomButtom(
               onPressed: () async {
-                await customUrlLuncher(context);
+                await customUrlLuncher(context,
+                    bookUrl: book.previewLink ?? "");
               },
               text: "Free preview",
               backgroundColor: AppColors.orange,
