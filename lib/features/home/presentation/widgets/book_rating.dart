@@ -5,8 +5,11 @@ import 'package:flutter/material.dart';
 class BookRating extends StatelessWidget {
   const BookRating({
     super.key,
+    required this.ratingStar,
+    required this.ratingNumber,
   });
-
+  final num ratingStar;
+  final num ratingNumber;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -14,9 +17,9 @@ class BookRating extends StatelessWidget {
       children: [
         const Icon(Icons.star, color: AppColors.yellow, size: 18),
         const SizedBox(width: 6.3),
-        Text("4.8", style: AppStyles.styleMedium14(context)),
+        Text('$ratingStar', style: AppStyles.styleMedium14(context)),
         const SizedBox(width: 5),
-        Text("(2490)",
+        Text("($ratingNumber)",
             style: AppStyles.styleMedium14(context)
                 .copyWith(color: AppColors.whiteLight)),
       ],

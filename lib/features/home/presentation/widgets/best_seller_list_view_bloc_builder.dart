@@ -11,7 +11,6 @@ class BestSellerListViewBlocBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BestSellerListViewLoadingIndicator();
     return BlocBuilder<NewestBookCubit, NewestBookState>(
       builder: (context, state) {
         if (state is NewestBookSuccess) {

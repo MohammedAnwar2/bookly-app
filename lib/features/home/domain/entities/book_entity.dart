@@ -21,11 +21,15 @@ class BookEntity {
   @HiveField(5)
   final num? rating;
 
+  @HiveField(6)
+  final num? ratingCount;
+
   BookEntity(
       {required this.bookId,
       required this.image,
       required this.title,
       required this.authorName,
       required this.price,
-      required this.rating});
+      required this.rating,
+      required this.ratingCount});
 }

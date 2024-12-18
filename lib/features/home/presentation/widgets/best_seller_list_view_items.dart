@@ -51,8 +51,10 @@ class BestSellerListViewItem extends StatelessWidget {
                       .copyWith(color: Colors.white.withOpacity(0.8))),
               const SizedBox(height: 3),
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                Text(books.price.toString()),
-                BookRating(),
+                Text('Free'),
+                BookRating(
+                    ratingStar: books.rating ?? 0,
+                    ratingNumber: books.ratingCount ?? 0),
               ])
             ]),
           ),
