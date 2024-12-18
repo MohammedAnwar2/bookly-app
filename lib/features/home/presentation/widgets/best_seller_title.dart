@@ -10,7 +10,7 @@ class BestSellerTextTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsetsDirectional.only(start: 24),
-      child: Text("Best Seller", style: AppStyles.styleSemiBolde18(context)),
+      child: Text("Another Books", style: AppStyles.styleSemiBolde18(context)),
     );
   }
 }

@@ -54,7 +54,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
             children: [
               CustomAppBar(),
               FeaturedBookListViewBlocConsumer(),
-              SizedBox(height: 50),
+              SizedBox(height: 40),
               BestSellerTextTile(),
             ],
           ),
