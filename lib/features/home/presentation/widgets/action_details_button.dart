@@ -1,7 +1,7 @@
 import 'package:bookly_app/core/utils/functions/custom_url_luncher.dart';
 import 'package:bookly_app/core/utils/shared/custom_button.dart';
 import 'package:bookly_app/core/utils/app_colors.dart';
-import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
+import 'package:bookly_app/core/utils/shared/entities/book_entity.dart';
 import 'package:flutter/material.dart';
 
 class ActionButton extends StatelessWidget {

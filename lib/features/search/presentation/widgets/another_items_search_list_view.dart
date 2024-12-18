@@ -1,78 +1,68 @@
-import 'package:bookly_app/core/utils/app_style.dart';
-import 'package:bookly_app/core/utils/shared/book_rating.dart';
+import 'package:bookly_app/core/utils/shared/entities/book_entity.dart';
+import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/features/search/domain/entities/search_book_entities.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:bookly_app/features/search/presentation/manager/all_books_cubit/all_books_cubit.dart';
+import 'package:bookly_app/features/search/presentation/widgets/another_items_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
-class AnotherItemSearchListView extends StatelessWidget {
+class AnotherItemSearchListView extends StatefulWidget {
   const AnotherItemSearchListView({
     super.key,
     required this.books,
   });
-  final List<SearchBookEntities> books;
+  final List<BookEntity> books;
+
+  @override
+  State<AnotherItemSearchListView> createState() =>
+      _AnotherItemSearchListViewState();
+}
+
+class _AnotherItemSearchListViewState extends State<AnotherItemSearchListView> {
+  final ScrollController _scrollController = ScrollController();
+  int nextPage = 1;
+  bool isLoading = false;
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_onScroll);
+  }
+
+  void _onScroll() async {
+    final currentPossition = _scrollController.position.pixels;
+    final maxScrollLength = _scrollController.position.maxScrollExtent;
+    if (currentPossition >= maxScrollLength * 0.7) {
+      if (!isLoading) {
+        isLoading = true;
+        await BlocProvider.of<GetAllBooksCubit>(context)
+            .fetchAllBooks(pageNumber: nextPage++);
+        isLoading = false;
+      }
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: books.length,
+      controller: _scrollController,
+      itemCount: widget.books.length,
       itemBuilder: (BuildContext context, int index) {
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 10),
           child: GestureDetector(
             onTap: () {
-              // BookEntity book = widget.books[index];
-              // book.bookId = book.bookId + book.bookId;
-              // GoRouter.of(context)
-              //     .push(AppRouter.homeViewDetails, extra: book);
+              BookEntity book = widget.books[index];
+              book.bookId = book.bookId + book.bookId + book.bookId;
+              GoRouter.of(context).push(AppRouter.homeViewDetails, extra: book);
             },
-            child: Row(
-              children: [
-                SizedBox(
-                  height: 125,
-                  child: Hero(
-                    tag: books[index].bookId,
-                    child: AspectRatio(
-                      aspectRatio: 2.5 / 4,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(16),
-                        child: CachedNetworkImage(
-                          fit: BoxFit.fill,
-                          imageUrl: books[index].image ?? "",
-                          placeholder: (context, url) =>
-                              const CircularProgressIndicator(),
-                          errorWidget: (context, url, error) =>
-                              const Icon(Icons.error),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 16),
-                Expanded(
-                  child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(books[index].title,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: AppStyles.styleRegular20(context)
-                                .copyWith(height: 1.2)),
-                        const SizedBox(height: 3),
-                        Text(books[index].authorName ?? "",
-                            style: AppStyles.styleRegular20(context).copyWith(
-                                color: Colors.white.withOpacity(0.8))),
-                        const SizedBox(height: 3),
-                        Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text('Free'),
-                              BookRating(
-                                  ratingStar: books[index].rating ?? 0,
-                                  ratingNumber: books[index].ratingCount ?? 0),
-                            ])
-                      ]),
-                ),
-              ],
-            ),
+            child: AnotherItemsWidget(books: widget.books[index]),
           ),
         );
       },

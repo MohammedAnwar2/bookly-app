@@ -1,6 +1,6 @@
 import 'package:bookly_app/core/class/either_class.dart';
 import 'package:bookly_app/core/error/error.dart';
-import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
+import 'package:bookly_app/core/utils/shared/entities/book_entity.dart';
 
 //! what will happen in feature
 //* 1 - get all the featured books

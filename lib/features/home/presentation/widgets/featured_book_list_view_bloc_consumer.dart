@@ -1,5 +1,5 @@
 import 'package:bookly_app/core/utils/functions/custom_snac_bar_error.dart';
-import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
+import 'package:bookly_app/core/utils/shared/entities/book_entity.dart';
 import 'package:bookly_app/features/home/presentation/manager/featured_book_cubit/featured_book_cubit.dart';
 import 'package:bookly_app/features/home/presentation/widgets/featured_list_view.dart';
 import 'package:bookly_app/features/home/presentation/widgets/featured_list_view_loading_indicator.dart';

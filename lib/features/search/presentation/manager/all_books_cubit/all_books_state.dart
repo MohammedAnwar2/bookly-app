@@ -8,8 +8,10 @@ class AllBooksInitial extends AllBooksState {}
 
 class AllBooksLoading extends AllBooksState {}
 
+class AllBooksPaginationLoading extends AllBooksState {}
+
 class AllBooksSuccess extends AllBooksState {
-  final List<SearchBookEntities> books;
+  final List<BookEntity> books;
 
   AllBooksSuccess(this.books);
 }
@@ -18,4 +20,10 @@ class AllBooksFailure extends AllBooksState {
   final String errorMessage;
 
   AllBooksFailure(this.errorMessage);
+}
+
+class AllBooksPaginationFailure extends AllBooksState {
+  final String errorMessage;
+
+  AllBooksPaginationFailure(this.errorMessage);
 }

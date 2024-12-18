@@ -1,7 +1,7 @@
 import 'package:bookly_app/core/service/api_services.dart';
 import 'package:bookly_app/core/utils/functions/setup_service_locator.dart';
 import 'package:bookly_app/features/home/data/repos/home_repo_imp.dart';
-import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
+import 'package:bookly_app/core/utils/shared/entities/book_entity.dart';
 import 'package:bookly_app/features/home/domain/use_case.dart/fetch_similar_books_use_case.dart';
 import 'package:bookly_app/features/home/presentation/manager/similar_book_cubit/similar_book_cubit.dart';
 import 'package:bookly_app/features/home/presentation/view/home_view.dart';
