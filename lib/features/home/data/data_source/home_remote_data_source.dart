@@ -7,6 +7,7 @@ import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
 abstract class HomeRemoteDataSource {
   Future<List<BookEntity>> fetchFeaturedBooks({int pageNumber = 0});
   Future<List<BookEntity>> fetchNewestBooks({int pageNumber = 0});
+  Future<List<BookEntity>> fetchSimilarBooks({int pageNumber = 0});
 }
 
 class HomeRemoteDataSourceImp extends HomeRemoteDataSource {
@@ -39,6 +40,16 @@ class HomeRemoteDataSourceImp extends HomeRemoteDataSource {
     for (var bookMap in data['items']) {
       books.add(BookModel.fromJson(bookMap));
     }
+    return books;
+  }
+
+  @override
+  Future<List<BookEntity>> fetchSimilarBooks({int pageNumber = 0}) async {
+    Map<String, dynamic> data = await apiServices.get(
+        endpoint:
+            'volumes?q=computer&Filtering=free-ebooks&sorting=relevance&startIndex=${pageNumber * 10}');
+    List<BookEntity> books = getBoxList(data);
+    saveBooksData(books, kSimilarBox);
     return books;
   }
 }

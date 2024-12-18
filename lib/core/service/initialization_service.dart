@@ -11,6 +11,7 @@ class InitializationService {
     Hive.registerAdapter(BookEntityAdapter());
     await Hive.openBox<BookEntity>(kFeaturedBox);
     await Hive.openBox<BookEntity>(kNewestdBox);
+    await Hive.openBox<BookEntity>(kSimilarBox);
     Bloc.observer = MyBlocObserver();
     setupServersLocator();
   }

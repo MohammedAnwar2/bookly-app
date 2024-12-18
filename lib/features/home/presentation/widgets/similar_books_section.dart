@@ -23,7 +23,7 @@ class SimilarBooksSection extends StatelessWidget {
               return const Padding(
                 padding: EdgeInsetsDirectional.only(start: 12),
                 //! List.length -1 == index
-                child: CustomBookImage(imageUrl: ""),
+                // child: CustomBookImage(imageUrl: ""),
               );
             },
           ),

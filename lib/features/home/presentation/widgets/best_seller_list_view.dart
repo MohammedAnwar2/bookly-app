@@ -8,6 +8,7 @@ class BestSellerListView extends StatelessWidget {
     required this.books,
   });
   final List<BookEntity> books;
+
   @override
   Widget build(BuildContext context) {
     return SliverList.builder(

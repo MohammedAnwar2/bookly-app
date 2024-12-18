@@ -16,22 +16,26 @@ class BestSellerListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).push(AppRouter.homeViewDetails);
+        GoRouter.of(context).push(AppRouter.homeViewDetails, extra: books);
       },
       child: Row(
         children: [
           SizedBox(
             height: 125,
-            child: AspectRatio(
-              aspectRatio: 2.5 / 4,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(16),
-                child: CachedNetworkImage(
-                  fit: BoxFit.fill,
-                  imageUrl: books.image ?? "",
-                  placeholder: (context, url) =>
-                      const CircularProgressIndicator(),
-                  errorWidget: (context, url, error) => const Icon(Icons.error),
+            child: Hero(
+              tag: books.bookId,
+              child: AspectRatio(
+                aspectRatio: 2.5 / 4,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: CachedNetworkImage(
+                    fit: BoxFit.fill,
+                    imageUrl: books.image ?? "",
+                    placeholder: (context, url) =>
+                        const CircularProgressIndicator(),
+                    errorWidget: (context, url, error) =>
+                        const Icon(Icons.error),
+                  ),
                 ),
               ),
             ),

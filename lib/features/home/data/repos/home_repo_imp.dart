@@ -51,4 +51,43 @@ class HomeRepoImp extends HomeRepo {
       return Either.left(ServerFailure(e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, List<BookEntity>>> fetchSimilarBooks(
+      {required int pageNumer}) async {
+    try {
+      List<BookEntity> booksList;
+      booksList = homeLocalDataSource.fetchNewestBooks(pageNumber: pageNumer);
+      if (booksList.isNotEmpty) {
+        return Either.right(booksList);
+      }
+      booksList =
+          await homeRemoteDataSource.fetchNewestBooks(pageNumber: pageNumer);
+      return Either.right(booksList);
+    } catch (e) {
+      if (e is DioException) {
+        return Either.left(ServerFailure.fromDioError(e));
+      }
+      return Either.left(ServerFailure(e.toString()));
+    }
+  }
+
+  // @override
+  // Future<Either<Failure, List<BookEntity>>> fetchSimilarBooks({required int category}) async{
+  //       try {
+  //     List<BookEntity> booksList;
+  //     booksList = homeLocalDataSource.fetchNewestBooks(pageNumber: pageNumer);
+  //     if (booksList.isNotEmpty) {
+  //       return Either.right(booksList);
+  //     }
+  //     booksList =
+  //         await homeRemoteDataSource.fetchNewestBooks(pageNumber: pageNumer);
+  //     return Either.right(booksList);
+  //   } catch (e) {
+  //     if (e is DioException) {
+  //       return Either.left(ServerFailure.fromDioError(e));
+  //     }
+  //     return Either.left(ServerFailure(e.toString()));
+  //   }
+  // }
 }
