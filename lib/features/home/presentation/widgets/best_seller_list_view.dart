@@ -1,19 +1,21 @@
+import 'package:bookly_app/features/home/domain/entities/book_entity.dart';
 import 'package:bookly_app/features/home/presentation/widgets/best_seller_list_view_items.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerListView extends StatelessWidget {
   const BestSellerListView({
     super.key,
+    required this.books,
   });
-
+  final List<BookEntity> books;
   @override
   Widget build(BuildContext context) {
     return SliverList.builder(
-      itemCount: 50,
+      itemCount: books.length,
       itemBuilder: (BuildContext context, int index) {
-        return const Padding(
+        return Padding(
           padding: EdgeInsets.only(left: 30, right: 30, top: 16),
-          child: BestSellerListViewItem(),
+          child: BestSellerListViewItem(books: books[index]),
         );
       },
     );

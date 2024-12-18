@@ -4,7 +4,9 @@ import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/functions/setup_service_locator.dart';
 import 'package:bookly_app/features/home/data/repos/home_repo_imp.dart';
 import 'package:bookly_app/features/home/domain/use_case.dart/fetch_featured_books_use_case.dart';
+import 'package:bookly_app/features/home/domain/use_case.dart/fetch_newest_books_use_case.dart';
 import 'package:bookly_app/features/home/presentation/manager/featured_book_cubit/featured_book_cubit.dart';
+import 'package:bookly_app/features/home/presentation/manager/newest_book_cubit/newest_book_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -27,6 +29,13 @@ class BooklyApp extends StatelessWidget {
               homeRepo: getIt.get<HomeRepoImp>(),
             ),
           )..fetchFeaturedBooks(),
+        ),
+        BlocProvider(
+          create: (context) => NewestBookCubit(
+            FetchNewestBooksUseCase(
+              homeRepo: getIt.get<HomeRepoImp>(),
+            ),
+          )..fetchNewestBooks(),
         ),
       ],
       child: MaterialApp.router(
