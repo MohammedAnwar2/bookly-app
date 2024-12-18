@@ -6,7 +6,7 @@ import 'package:bookly_app/features/search/domain/repositories/search_repo.dart'
 
 class FetchAllBooksUseCase extends UseCase<List<SearchBookEntities>, NoParam> {
   final SearchRepo searchRepo;
-  FetchAllBooksUseCase(this.searchRepo);
+  FetchAllBooksUseCase({required this.searchRepo});
   @override
   Future<Either<Failure, List<SearchBookEntities>>> call(
       [NoParam? param]) async {
