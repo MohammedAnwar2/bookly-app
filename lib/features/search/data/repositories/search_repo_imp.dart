@@ -44,7 +44,7 @@ class SearchRepoImp extends SearchRepo {
       if (e is DioException) {
         return Either.left(ServerFailure.fromDioError(e));
       }
-      return Either.left(ServerFailure(e.toString()));
+      return Either.left(ServerFailure('There Is No Items'));
     }
   }
 }

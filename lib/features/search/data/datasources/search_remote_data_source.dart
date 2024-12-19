@@ -25,12 +25,13 @@ class SearchRemoteDataSourceImp extends SearchRemoteDataSource {
 
   @override
   Future<List<BookEntity>> fetchSpecificBooks({String title = ''}) async {
-    String encodedTitle = Uri.encodeComponent("intitle:$title");
-    String endpoint = "volumes?q=$encodedTitle&filter=free-ebooks";
+    // String encodedTitle = Uri.encodeComponent("intitle:$title");
+    String endpoint =
+        "volumes?q=intitle:$title&filter=free-ebooks&maxResults=40";
     Map<String, dynamic> data = await apiServices.get(endpoint: endpoint);
     List<BookEntity> books = _getSearchBooks(data);
-    saveBooksData(books, kSearchBox);
     return books;
+    // saveBooksData(books, kSearchBox);
   }
 
   List<BookEntity> _getSearchBooks(Map<String, dynamic> data) {

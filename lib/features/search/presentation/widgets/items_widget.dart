@@ -40,8 +40,8 @@ class ItemsWidget extends StatelessWidget {
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text(books.title,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
+                // maxLines: 2,
+                // overflow: TextOverflow.ellipsis,
                 style: AppStyles.styleRegular20(context).copyWith(height: 1.2)),
             const SizedBox(height: 3),
             Text(books.authorName ?? "",

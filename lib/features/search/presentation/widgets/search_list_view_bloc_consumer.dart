@@ -33,9 +33,10 @@ class _SearchListViewBlocConsumerState
       },
       builder: (context, state) {
         if (state is SearchSuccess) {
-          return SearchListView(books: books);
+          return SearchListView(books: state.books);
         } else if (state is SearchFailure) {
-          return Center(child: Text(state.errorMessage));
+          return Center(
+              child: Text(state.errorMessage, textAlign: TextAlign.center));
         } else {
           return Center(child: CircularProgressIndicator());
         }
