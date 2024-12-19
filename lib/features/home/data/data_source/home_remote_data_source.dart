@@ -34,22 +34,22 @@ class HomeRemoteDataSourceImp extends HomeRemoteDataSource {
     return books;
   }
 
+  @override
+  Future<List<BookEntity>> fetchSimilarBooks({int pageNumber = 0}) async {
+    Map<String, dynamic> data = await apiServices.get(
+        endpoint:
+            'volumes?q=programming&Filtering=free-ebooks&sorting=relevance&startIndex=${pageNumber * 10}');
+    List<BookEntity> books = getBoxList(data);
+    saveBooksData(books, kSimilarBox);
+    return books;
+  }
+
   List<BookEntity> getBoxList(Map<String, dynamic> data) {
     // book.addAll(data['items'].map((e) => BookModel.fromJson(e)));
     List<BookEntity> books = [];
     for (var bookMap in data['items']) {
       books.add(BookModel.fromJson(bookMap));
     }
-    return books;
-  }
-
-  @override
-  Future<List<BookEntity>> fetchSimilarBooks({int pageNumber = 0}) async {
-    Map<String, dynamic> data = await apiServices.get(
-        endpoint:
-            'volumes?q=computer&Filtering=free-ebooks&sorting=relevance&startIndex=${pageNumber * 10}');
-    List<BookEntity> books = getBoxList(data);
-    saveBooksData(books, kSimilarBox);
     return books;
   }
 }

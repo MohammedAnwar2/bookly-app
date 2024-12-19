@@ -31,11 +31,8 @@ class SearchCubit extends Cubit<SearchState> {
   }
 
   void onSearch(String text) async {
-    print(text);
     isTyping = text.isNotEmpty;
     if (isTyping) {
-      // if (!isLoading) {
-      // isLoading = true;
       if (debounce?.isActive ?? false) {
         debounce?.cancel();
       }
@@ -45,8 +42,6 @@ class SearchCubit extends Cubit<SearchState> {
           await fetchSpecificsBooks(title: text);
         },
       );
-      // isLoading = false;
-      // }
     } else {
       emit(SearchIsNotTyping());
     }

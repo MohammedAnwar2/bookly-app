@@ -1,6 +1,8 @@
+import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/shared/entities/book_entity.dart';
 import 'package:bookly_app/features/search/presentation/widgets/items_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SearchListView extends StatelessWidget {
   const SearchListView({
@@ -19,9 +21,9 @@ class SearchListView extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 10),
           child: GestureDetector(
             onTap: () {
-              // BookEntity book = books[index];
-              // book.bookId = book.bookId + book.bookId + book.bookId;
-              // GoRouter.of(context).push(AppRouter.homeViewDetails, extra: book);
+              BookEntity book = books[index];
+              book.bookId = book.bookId + book.bookId + book.bookId;
+              GoRouter.of(context).push(AppRouter.homeViewDetails, extra: book);
             },
             child: ItemsWidget(books: books[index]),
           ),
