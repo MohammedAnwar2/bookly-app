@@ -10,11 +10,13 @@ class SearchCubit extends Cubit<SearchState> {
   final FetchSpecificBooksUseCase fetchSpecificsBooksUseCase;
   late bool isTyping;
   late bool isLoading;
+  late TextEditingController controller;
   Timer? debounce;
   SearchCubit({required this.fetchSpecificsBooksUseCase})
       : super(SearchInitial()) {
     isTyping = false;
     isLoading = false;
+    controller = TextEditingController();
   }
 
   Future<void> fetchSpecificsBooks({required String title}) async {
@@ -33,6 +35,7 @@ class SearchCubit extends Cubit<SearchState> {
   void onSearch(String text) async {
     isTyping = text.isNotEmpty;
     if (isTyping) {
+      emit(SearchIsTyping());
       if (debounce?.isActive ?? false) {
         debounce?.cancel();
       }
@@ -45,5 +48,11 @@ class SearchCubit extends Cubit<SearchState> {
     } else {
       emit(SearchIsNotTyping());
     }
+  }
+
+  onDelete() {
+    controller.clear();
+    isTyping = false;
+    emit(SearchOnDelete());
   }
 }

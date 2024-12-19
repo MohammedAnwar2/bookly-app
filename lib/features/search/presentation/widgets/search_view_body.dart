@@ -5,6 +5,7 @@ import 'package:bookly_app/features/search/presentation/widgets/custom_text_form
 import 'package:bookly_app/features/search/presentation/widgets/search_list_view_bloc_consumer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SearchViewBody extends StatelessWidget {
   const SearchViewBody({super.key});
@@ -22,6 +23,19 @@ class SearchViewBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomTextFormField(
+                // controller: TextEditingController(),
+                controller: context.read<SearchCubit>().controller,
+                suffixIcon: IconButton(
+                    onPressed: () {
+                      if (state) {
+                        context.read<SearchCubit>().onDelete();
+                      }
+                    },
+                    icon: Icon(
+                        state
+                            ? FontAwesomeIcons.xmark
+                            : FontAwesomeIcons.magnifyingGlass,
+                        size: 22)),
                 onChanged: (text) {
                   context.read<SearchCubit>().onSearch(text);
                 },

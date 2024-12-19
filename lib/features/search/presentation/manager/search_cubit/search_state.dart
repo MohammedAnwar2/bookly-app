@@ -19,4 +19,8 @@ final class SearchFailure extends SearchState {
   SearchFailure(this.errorMessage);
 }
 
+final class SearchIsTyping extends SearchState {}
+
 final class SearchIsNotTyping extends SearchState {}
+
+final class SearchOnDelete extends SearchState {}
