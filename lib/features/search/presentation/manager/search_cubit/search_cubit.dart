@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:bookly_app/core/utils/shared/entities/book_entity.dart';
 import 'package:bookly_app/features/search/domain/usecases/search_specific_books.dart';
-import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 part 'search_state.dart';
@@ -41,7 +40,7 @@ class SearchCubit extends Cubit<SearchState> {
         debounce?.cancel();
       }
       debounce = Timer(
-        Duration(milliseconds: 500),
+        Duration(milliseconds: 200),
         () async {
           await fetchSpecificsBooks(title: text);
         },
