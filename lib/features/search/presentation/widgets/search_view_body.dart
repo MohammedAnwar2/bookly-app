@@ -22,7 +22,9 @@ class SearchViewBody extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CustomTextFormField(
-                onChanged: (text) {},
+                onChanged: (text) {
+                  context.read<SearchCubit>().onSearch(text);
+                },
               ),
               SizedBox(height: 10),
               if (!state) ...{
@@ -31,7 +33,7 @@ class SearchViewBody extends StatelessWidget {
                 SizedBox(height: 20),
                 Expanded(
                   child: AnotherItemSearchListViewBlocConsumer(),
-                )
+                ),
               } else ...{
                 Text("result search",
                     style: AppStyles.styleSemiBolde18(context)),

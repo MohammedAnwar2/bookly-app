@@ -10,10 +10,11 @@ import 'package:bookly_app/features/search/data/datasources/search_local_data_so
 import 'package:bookly_app/features/search/data/datasources/search_remote_data_source.dart';
 import 'package:bookly_app/features/search/data/repositories/search_repo_imp.dart';
 import 'package:bookly_app/features/search/domain/usecases/fetch_all_books.dart';
+import 'package:bookly_app/features/search/domain/usecases/search_specific_books.dart';
 import 'package:bookly_app/features/search/presentation/manager/all_books_cubit/all_books_cubit.dart';
+import 'package:bookly_app/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:bookly_app/features/search/presentation/pages/search_view.dart';
 import 'package:bookly_app/features/splash/presentation/view/splash_view.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -51,6 +52,12 @@ abstract class AppRouter {
                 FetchAllBooksUseCase(
                   searchRepo: getIt.get<SearchRepoImp>(),
                 ),
+              ),
+            ),
+            BlocProvider(
+              create: (context) => SearchCubit(
+                fetchSpecificsBooksUseCase: FetchSpecificBooksUseCase(
+                    searchRepo: getIt.get<SearchRepoImp>()),
               ),
             ),
           ],

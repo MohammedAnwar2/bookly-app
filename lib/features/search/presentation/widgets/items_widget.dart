@@ -45,6 +45,8 @@ class ItemsWidget extends StatelessWidget {
                 style: AppStyles.styleRegular20(context).copyWith(height: 1.2)),
             const SizedBox(height: 3),
             Text(books.authorName ?? "",
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
                 style: AppStyles.styleRegular20(context)
                     .copyWith(color: Colors.white.withOpacity(0.8))),
             const SizedBox(height: 3),
