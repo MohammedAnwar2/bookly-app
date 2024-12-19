@@ -1,7 +1,6 @@
 import 'package:bookly_app/features/search/presentation/manager/all_books_cubit/all_books_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'another_items_search_list_view.dart';
 
 class AnotherItemSearchListViewBlocBuilder extends StatelessWidget {
