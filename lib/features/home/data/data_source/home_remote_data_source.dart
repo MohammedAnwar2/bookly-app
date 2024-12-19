@@ -27,8 +27,8 @@ class HomeRemoteDataSourceImp extends HomeRemoteDataSource {
   @override
   Future<List<BookEntity>> fetchNewestBooks({int pageNumber = 0}) async {
     Map<String, dynamic> data = await apiServices.get(
-        endpoint:
-            'volumes?q=programming&Filtering=free-ebooks&sorting=newest&startIndex=${pageNumber * 10}');
+        endpoint: //Science
+            'volumes?q=subject:Science&Filtering=free-ebooks&sorting=newest&startIndex=${pageNumber * 10}');
     List<BookEntity> books = getBoxList(data);
     saveBooksData(books, kNewestdBox);
     return books;
