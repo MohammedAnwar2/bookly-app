@@ -25,18 +25,6 @@ class _HomeViewBodyState extends State<HomeViewBody> {
     _scrollController.addListener(_scroll);
   }
 
-  void _scroll() async {
-    if (_scrollController.position.pixels >=
-        0.7 * _scrollController.position.maxScrollExtent) {
-      if (!loading) {
-        loading = true;
-        await BlocProvider.of<NewestBookCubit>(context)
-            .fetchNewestBooks(pageNumber: nextPage++);
-        loading = false;
-      }
-    }
-  }
-
   @override
   void dispose() {
     _scrollController.dispose();
@@ -63,5 +51,17 @@ class _HomeViewBodyState extends State<HomeViewBody> {
         SliverToBoxAdapter(child: SizedBox(height: 30)),
       ],
     );
+  }
+
+  void _scroll() async {
+    if (_scrollController.position.pixels >=
+        0.7 * _scrollController.position.maxScrollExtent) {
+      if (!loading) {
+        loading = true;
+        await BlocProvider.of<NewestBookCubit>(context)
+            .fetchNewestBooks(pageNumber: nextPage++);
+        loading = false;
+      }
+    }
   }
 }

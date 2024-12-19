@@ -1,5 +1,7 @@
 import 'package:bookly_app/core/class/either_class.dart';
 import 'package:bookly_app/core/error/error.dart';
+import 'package:bookly_app/core/utils/constants.dart';
+import 'package:bookly_app/core/utils/functions/save_books_data.dart';
 import 'package:bookly_app/features/home/data/data_source/home_local_data_source.dart';
 import 'package:bookly_app/features/home/data/data_source/home_remote_data_source.dart';
 import 'package:bookly_app/core/utils/shared/entities/book_entity.dart';
@@ -23,6 +25,7 @@ class HomeRepoImp extends HomeRepo {
       }
       booksList =
           await homeRemoteDataSource.fetchFeaturedBooks(pageNumber: pageNumer);
+      saveBooksData(booksList, kFeaturedBox);
       return Either.right(booksList);
     } catch (e) {
       if (e is DioException) {
@@ -43,6 +46,7 @@ class HomeRepoImp extends HomeRepo {
       }
       booksList =
           await homeRemoteDataSource.fetchNewestBooks(pageNumber: pageNumer);
+      saveBooksData(booksList, kNewestdBox);
       return Either.right(booksList);
     } catch (e) {
       if (e is DioException) {
@@ -58,11 +62,13 @@ class HomeRepoImp extends HomeRepo {
     try {
       List<BookEntity> booksList;
       booksList = homeLocalDataSource.fetchSimilarBooks(pageNumber: pageNumer);
+
       if (booksList.isNotEmpty) {
         return Either.right(booksList);
       }
       booksList =
           await homeRemoteDataSource.fetchSimilarBooks(pageNumber: pageNumer);
+      saveBooksData(booksList, kSimilarBox);
       return Either.right(booksList);
     } catch (e) {
       if (e is DioException) {
