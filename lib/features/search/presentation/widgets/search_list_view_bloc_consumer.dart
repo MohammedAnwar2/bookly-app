@@ -1,6 +1,7 @@
 import 'package:bookly_app/core/utils/shared/entities/book_entity.dart';
 import 'package:bookly_app/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:bookly_app/features/search/presentation/widgets/search_list_view.dart';
+import 'package:bookly_app/features/search/presentation/widgets/search_list_view_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -38,7 +39,7 @@ class _SearchListViewBlocConsumerState
           return Center(
               child: Text(state.errorMessage, textAlign: TextAlign.center));
         } else {
-          return Center(child: CircularProgressIndicator());
+          return SearchListViewLoadingIndicator();
         }
       },
     );

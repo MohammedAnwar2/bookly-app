@@ -1,4 +1,5 @@
 import 'package:bookly_app/features/search/presentation/manager/all_books_cubit/all_books_cubit.dart';
+import 'package:bookly_app/features/search/presentation/widgets/search_list_view_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'another_items_search_list_view.dart';
@@ -20,7 +21,7 @@ class AnotherItemSearchListViewBlocBuilder extends StatelessWidget {
         } else if (state is AllBooksFailure) {
           return Center(child: Text(state.errorMessage));
         } else {
-          return Center(child: CircularProgressIndicator());
+          return SearchListViewLoadingIndicator();
         }
       },
     );
