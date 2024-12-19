@@ -3,26 +3,8 @@ import 'package:bookly_app/features/search/presentation/widgets/another_items_se
 import 'package:bookly_app/features/search/presentation/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
-class SearchViewBody extends StatefulWidget {
+class SearchViewBody extends StatelessWidget {
   const SearchViewBody({super.key});
-
-  @override
-  State<SearchViewBody> createState() => _SearchViewBodyState();
-}
-
-class _SearchViewBodyState extends State<SearchViewBody> {
-  late TextEditingController textController;
-  @override
-  void initState() {
-    textController = TextEditingController();
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    textController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +14,6 @@ class _SearchViewBodyState extends State<SearchViewBody> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomTextFormField(
-            textController: textController,
             onChanged: (text) {},
           ),
           SizedBox(height: 10),

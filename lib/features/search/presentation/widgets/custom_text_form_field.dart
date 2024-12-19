@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField(
-      {super.key, required this.textController, this.onChanged});
-  final TextEditingController textController;
+  const CustomTextFormField({super.key, this.onChanged});
   final Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
@@ -13,7 +11,6 @@ class CustomTextFormField extends StatelessWidget {
       opacity: 0.7,
       child: TextFormField(
         onChanged: onChanged,
-        controller: textController,
         decoration: InputDecoration(
             enabledBorder: buildOutlineInputBorder(),
             focusedBorder: buildOutlineInputBorder(),

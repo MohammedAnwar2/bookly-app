@@ -4,8 +4,8 @@ import 'package:bookly_app/core/utils/shared/book_rating.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-class AnotherItemsWidget extends StatelessWidget {
-  const AnotherItemsWidget({
+class ItemsWidget extends StatelessWidget {
+  const ItemsWidget({
     super.key,
     required this.books,
   });
