@@ -10,11 +10,7 @@ class AllBooksLoading extends AllBooksState {}
 
 class AllBooksPaginationLoading extends AllBooksState {}
 
-class AllBooksSuccess extends AllBooksState {
-  final List<BookEntity> books;
-
-  AllBooksSuccess(this.books);
-}
+class AllBooksSuccess extends AllBooksState {}
 
 class AllBooksFailure extends AllBooksState {
   final String errorMessage;

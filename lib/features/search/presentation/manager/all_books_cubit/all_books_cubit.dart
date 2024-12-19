@@ -1,11 +1,11 @@
 import 'package:bookly_app/core/utils/shared/entities/book_entity.dart';
-import 'package:bookly_app/features/search/domain/entities/search_book_entities.dart';
 import 'package:bookly_app/features/search/domain/usecases/fetch_all_books.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 part 'all_books_state.dart';
 
 class GetAllBooksCubit extends Cubit<AllBooksState> {
   final FetchAllBooksUseCase fetchAllBooksUseCase;
+  List<BookEntity> booksLit = [];
   GetAllBooksCubit(this.fetchAllBooksUseCase) : super(AllBooksInitial()) {
     fetchAllBooks();
   }
@@ -23,7 +23,8 @@ class GetAllBooksCubit extends Cubit<AllBooksState> {
         emit(AllBooksPaginationFailure(failure.message));
       }
     }, (booksList) {
-      emit(AllBooksSuccess(booksList));
+      booksLit.addAll(booksList);
+      emit(AllBooksSuccess());
     });
   }
 }
