@@ -11,8 +11,8 @@ abstract class HomeLocalDataSource {
 class HomeLocalDataSourceImp extends HomeLocalDataSource {
   @override
   List<BookEntity> fetchFeaturedBooks({int pageNumber = 0}) {
-    int startIndex = pageNumber * 10;
-    int endIndex = (pageNumber + 1) * 10;
+    int startIndex = pageNumber * 20;
+    int endIndex = (pageNumber + 1) * 20;
     var box = Hive.box<BookEntity>(kFeaturedBox);
     int length = box.values.length;
     // Ensure the startIndex is within the valid range
@@ -29,8 +29,8 @@ class HomeLocalDataSourceImp extends HomeLocalDataSource {
 
   @override
   List<BookEntity> fetchNewestBooks({int pageNumber = 0}) {
-    int startIndex = pageNumber * 10;
-    int endIndex = (pageNumber + 1) * 10;
+    int startIndex = pageNumber * 20;
+    int endIndex = (pageNumber + 1) * 20;
     var box = Hive.box<BookEntity>(kNewestdBox);
     int length = box.values.length;
     // Ensure the startIndex is within the valid range
@@ -47,8 +47,8 @@ class HomeLocalDataSourceImp extends HomeLocalDataSource {
 
   @override
   List<BookEntity> fetchSimilarBooks({int pageNumber = 0}) {
-    int startIndex = pageNumber * 10;
-    int endIndex = (pageNumber + 1) * 10;
+    int startIndex = pageNumber * 30;
+    int endIndex = (pageNumber + 1) * 30;
     var box = Hive.box<BookEntity>(kSimilarBox);
     int length = box.values.length;
     // Ensure the startIndex is within the valid range

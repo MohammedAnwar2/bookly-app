@@ -18,7 +18,7 @@ class HomeRemoteDataSourceImp extends HomeRemoteDataSource {
   Future<List<BookEntity>> fetchFeaturedBooks({int pageNumber = 0}) async {
     Map<String, dynamic> data = await apiServices.get(
         endpoint:
-            'volumes?q=programming&Filtering=free-ebooks&startIndex=${pageNumber * 10}');
+            'volumes?q=programming&Filtering=free-ebooks&maxResults=20&startIndex=${pageNumber * 20}');
     List<BookEntity> books = getBoxList(data);
     saveBooksData(books, kFeaturedBox);
     return books;
@@ -28,7 +28,7 @@ class HomeRemoteDataSourceImp extends HomeRemoteDataSource {
   Future<List<BookEntity>> fetchNewestBooks({int pageNumber = 0}) async {
     Map<String, dynamic> data = await apiServices.get(
         endpoint: //Science
-            'volumes?q=subject:Science&Filtering=free-ebooks&sorting=newest&startIndex=${pageNumber * 10}');
+            'volumes?q=subject:art&Filtering=free-ebooks&maxResults=20&sorting=newest&startIndex=${pageNumber * 20}');
     List<BookEntity> books = getBoxList(data);
     saveBooksData(books, kNewestdBox);
     return books;
@@ -38,7 +38,7 @@ class HomeRemoteDataSourceImp extends HomeRemoteDataSource {
   Future<List<BookEntity>> fetchSimilarBooks({int pageNumber = 0}) async {
     Map<String, dynamic> data = await apiServices.get(
         endpoint:
-            'volumes?q=programming&Filtering=free-ebooks&sorting=relevance&startIndex=${pageNumber * 10}');
+            'volumes?q=programming&Filtering=free-ebooks&maxResults=30&sorting=relevance&startIndex=${pageNumber * 30}');
     List<BookEntity> books = getBoxList(data);
     saveBooksData(books, kSimilarBox);
     return books;

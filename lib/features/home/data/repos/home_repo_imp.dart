@@ -57,12 +57,12 @@ class HomeRepoImp extends HomeRepo {
       {required int pageNumer}) async {
     try {
       List<BookEntity> booksList;
-      booksList = homeLocalDataSource.fetchNewestBooks(pageNumber: pageNumer);
+      booksList = homeLocalDataSource.fetchSimilarBooks(pageNumber: pageNumer);
       if (booksList.isNotEmpty) {
         return Either.right(booksList);
       }
       booksList =
-          await homeRemoteDataSource.fetchNewestBooks(pageNumber: pageNumer);
+          await homeRemoteDataSource.fetchSimilarBooks(pageNumber: pageNumer);
       return Either.right(booksList);
     } catch (e) {
       if (e is DioException) {
