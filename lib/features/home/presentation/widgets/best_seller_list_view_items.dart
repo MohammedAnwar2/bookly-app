@@ -1,6 +1,9 @@
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/app_style.dart';
+import 'package:bookly_app/core/utils/shared/custom_book_image.dart';
+import 'package:bookly_app/core/utils/shared/custom_fading_widget.dart';
 import 'package:bookly_app/core/utils/shared/entities/book_entity.dart';
+import 'package:bookly_app/core/utils/shared/custom_book_image_loading_indicator.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -22,23 +25,10 @@ class BestSellerListViewItem extends StatelessWidget {
         children: [
           SizedBox(
             height: 125,
-            child: Hero(
-              tag: books.bookId,
-              child: AspectRatio(
-                aspectRatio: 2.5 / 4,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(16),
-                  child: CachedNetworkImage(
-                    fit: BoxFit.fill,
-                    imageUrl: books.image ?? "",
-                    placeholder: (context, url) =>
-                        const CircularProgressIndicator(),
-                    errorWidget: (context, url, error) =>
-                        const Icon(Icons.error),
-                  ),
-                ),
-              ),
-            ),
+            child: CustomBookImage(
+                imageUrl: books.image ?? "",
+                id: books.bookId,
+                aspectRatio: 2.5 / 4),
           ),
           const SizedBox(width: 16),
           Expanded(
