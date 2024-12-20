@@ -13,6 +13,7 @@ import 'package:bookly_app/features/search/domain/usecases/fetch_all_books.dart'
 import 'package:bookly_app/features/search/domain/usecases/search_specific_books.dart';
 import 'package:bookly_app/features/search/presentation/manager/all_books_cubit/all_books_cubit.dart';
 import 'package:bookly_app/features/search/presentation/manager/search_cubit/search_cubit.dart';
+import 'package:bookly_app/features/search/presentation/manager/text_input_cubit/text_input_cubit.dart';
 import 'package:bookly_app/features/search/presentation/pages/search_view.dart';
 import 'package:bookly_app/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -60,6 +61,7 @@ abstract class AppRouter {
                     searchRepo: getIt.get<SearchRepoImp>()),
               ),
             ),
+            BlocProvider(create: (context) => TextInputCubit())
           ],
           child: const SearchView(),
         ),

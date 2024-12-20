@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:bookly_app/core/utils/app_style.dart';
 import 'package:bookly_app/core/utils/functions/debouncer.dart';
 import 'package:bookly_app/features/search/presentation/manager/search_cubit/search_cubit.dart';
@@ -72,20 +71,22 @@ class _SearchViewBodyState extends State<SearchViewBody> {
           BlocSelector<TextInputCubit, TextInputState, bool>(
             selector: (state) => state is TextInputTyping,
             builder: (context, isTyping) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    isTyping ? "Result Search" : "Another Books",
-                    style: AppStyles.styleSemiBolde18(context),
-                  ),
-                  SizedBox(height: 20),
-                  Expanded(
-                    child: isTyping
-                        ? SearchListViewBlocConsumer()
-                        : AnotherItemSearchListViewBlocBuilder(),
-                  ),
-                ],
+              return Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      isTyping ? "Result Search" : "Another Books",
+                      style: AppStyles.styleSemiBolde18(context),
+                    ),
+                    SizedBox(height: 20),
+                    Expanded(
+                      child: isTyping
+                          ? SearchListViewBlocConsumer()
+                          : AnotherItemSearchListViewBlocBuilder(),
+                    ),
+                  ],
+                ),
               );
             },
           ),
