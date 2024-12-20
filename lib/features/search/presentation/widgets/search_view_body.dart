@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:bookly_app/core/utils/app_style.dart';
+import 'package:bookly_app/core/utils/functions/debouncer.dart';
 import 'package:bookly_app/features/search/presentation/manager/search_cubit/search_cubit.dart';
 import 'package:bookly_app/features/search/presentation/manager/text_input_cubit/text_input_cubit.dart';
 import 'package:bookly_app/features/search/presentation/widgets/another_items_search_list_view_bloc_builder.dart';
@@ -16,10 +17,16 @@ class SearchViewBody extends StatefulWidget {
 }
 
 class _SearchViewBodyState extends State<SearchViewBody> {
-  Timer? debounce;
+  late Debouncer debouncer;
+  @override
+  void initState() {
+    debouncer = Debouncer(milliseconds: 200);
+    super.initState();
+  }
+
   @override
   void dispose() {
-    debounce?.cancel();
+    debouncer.cancel();
     super.dispose();
   }
 
@@ -52,7 +59,11 @@ class _SearchViewBodyState extends State<SearchViewBody> {
                 ),
                 onChanged: (text) {
                   textInputCubit.onTyping(text);
-                  _debouncedFetchBooks(text, searchCubit);
+                  if (text.isNotEmpty) {
+                    debouncer.run(() {
+                      searchCubit.fetchSpecificsBooks(title: text);
+                    });
+                  }
                 },
               );
             },
@@ -81,19 +92,5 @@ class _SearchViewBodyState extends State<SearchViewBody> {
         ],
       ),
     );
-  }
-
-  void _debouncedFetchBooks(String text, SearchCubit searchCubit) {
-    if (text.isNotEmpty) {
-      if (debounce?.isActive ?? false) {
-        debounce?.cancel();
-      }
-      debounce = Timer(
-        Duration(milliseconds: 200),
-        () {
-          searchCubit.fetchSpecificsBooks(title: text);
-        },
-      );
-    }
   }
 }
