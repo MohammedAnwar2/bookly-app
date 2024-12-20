@@ -1,6 +1,7 @@
 import 'package:bookly_app/core/utils/shared/entities/book_entity.dart';
 import 'package:bookly_app/features/home/presentation/manager/similar_book_cubit/similar_book_cubit.dart';
 import 'package:bookly_app/features/home/presentation/widgets/similar_list_view.dart';
+import 'package:bookly_app/features/home/presentation/widgets/similar_list_view_loading_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -41,7 +42,7 @@ class _SimilarListViewBlocConsumerState
           case SimilarBookFailure():
             return Center(child: Text(state.errorMessage));
           case SimilarBookLoading():
-            return Center(child: CircularProgressIndicator());
+            return SimilarListViewLoadingIndicator();
         }
       },
     );
