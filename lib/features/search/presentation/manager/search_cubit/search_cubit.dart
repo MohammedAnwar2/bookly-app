@@ -8,16 +8,8 @@ part 'search_state.dart';
 
 class SearchCubit extends Cubit<SearchState> {
   final FetchSpecificBooksUseCase fetchSpecificsBooksUseCase;
-  late bool isTyping;
-  late bool isLoading;
-  late TextEditingController controller;
-  Timer? debounce;
   SearchCubit({required this.fetchSpecificsBooksUseCase})
-      : super(SearchInitial()) {
-    isTyping = false;
-    isLoading = false;
-    controller = TextEditingController();
-  }
+      : super(SearchInitial());
 
   Future<void> fetchSpecificsBooks({required String title}) async {
     emit(SearchLoading());
@@ -30,29 +22,5 @@ class SearchCubit extends Cubit<SearchState> {
         emit(SearchSuccess(booksList));
       },
     );
-  }
-
-  void onSearch(String text) async {
-    isTyping = text.isNotEmpty;
-    if (isTyping) {
-      emit(SearchIsTyping());
-      if (debounce?.isActive ?? false) {
-        debounce?.cancel();
-      }
-      debounce = Timer(
-        Duration(milliseconds: 200),
-        () async {
-          await fetchSpecificsBooks(title: text);
-        },
-      );
-    } else {
-      emit(SearchIsNotTyping());
-    }
-  }
-
-  onDelete() {
-    controller.clear();
-    isTyping = false;
-    emit(SearchOnDelete());
   }
 }
