@@ -33,9 +33,10 @@ Find books quickly by searching with their titles. Thanks to the **debouncer**, 
 
 This feature improves the efficiency of your search and eliminates unnecessary delays. The debouncer helps to only trigger searches when you stop typing, ensuring that you get the most relevant results.
 
-![Search](assets/screenshots/search1.png)
-![Search](assets/screenshots/search2.png)
-
+<div>
+  <img src="assets/screenshots/search1.png" alt="Search 1" width="400" height="500">
+  <img src="assets/screenshots/search2.png" alt="Search 2" width="400", height="500">
+</div>
 ---
 
 ### 4. **Integration with Sources 🌐✨**
