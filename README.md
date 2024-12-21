@@ -59,8 +59,8 @@ The app includes a **custom loading effect** that visually enhances the user exp
 This feature adds a touch of creativity to the app, making waiting feel less tedious and more engaging.
 
 <div>
-  <img src="assets/screenshots/effect.png" alt="effect 1" width="400" height="500">
-  <img src="assets/screenshots/effect2.png" alt="effect 2" width="400", height="500">
+  <img src="assets/screenshots/effect.png" alt="effect 1" width="400" height="700">
+  <img src="assets/screenshots/effect2.png" alt="effect 2" width="400", height="700">
 </div>
 
 ---
