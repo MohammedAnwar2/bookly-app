@@ -60,7 +60,7 @@ This feature adds a touch of creativity to the app, making waiting feel less ted
 
 <div>
   <img src="assets/screenshots/effect.png" alt="effect 1" width="400" height="500">
-  <img src="assets/screenshots/effect3.png" alt="effect 2" width="400", height="500">
+  <img src="assets/screenshots/effect1.png" alt="effect 2" width="400", height="500">
 </div>
 
 ---
