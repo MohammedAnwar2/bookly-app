@@ -21,8 +21,8 @@ Responsive design ensures that the app automatically adjusts its layout to fit y
 <img src="assets/screenshots/responsive3.png" alt="Responsive 1" width="800">
 
 <div>
-  <img src="assets/screenshots/responsive2.png" alt="Responsive 2" width="400" height="600">
-  <img src="assets/screenshots/responsive1.png" alt="Responsive 3" width="400", height="600">
+  <img src="assets/screenshots/responsive2.png" alt="Responsive 2" width="400" height="700">
+  <img src="assets/screenshots/responsive1.png" alt="Responsive 3" width="400", height="700">
 </div>
 
 ---
