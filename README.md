@@ -18,11 +18,11 @@ The app adapts to all screen sizes, from small phones to large tablets and lapto
 
 Responsive design ensures that the app automatically adjusts its layout to fit your device, providing an optimal experience for all screen sizes.
 
-<img src="assets/screenshot/respomsive_1.png" alt="Responsive 1" width="800">
+<img src="assets/screenshots/responsive3.png" alt="Responsive 1" width="800">
 
 <div>
-  <img src="assets/screenshot/responsive4.png" alt="Responsive 2" width="400" height="500">
-  <img src="assets/screenshot/responsive5.png" alt="Responsive 3" width="400">
+  <img src="assets/screenshots/responsive2.png" alt="Responsive 2" width="400" height="500">
+  <img src="assets/screenshots/responsive1.png" alt="Responsive 3" width="400", height="500">
 </div>
 
 ---
@@ -33,7 +33,8 @@ Find books quickly by searching with their titles. Thanks to the **debouncer**, 
 
 This feature improves the efficiency of your search and eliminates unnecessary delays. The debouncer helps to only trigger searches when you stop typing, ensuring that you get the most relevant results.
 
-![Search](assets/screenshot/search.png)
+![Search](assets/screenshots/search1.png)
+![Search](assets/screenshots/search2.png)
 
 ---
 
@@ -49,8 +50,6 @@ To ensure smooth data loading, the app uses **pagination**. As you scroll throug
 
 This feature makes browsing faster by loading smaller sets of data as you scroll, improving the app's responsiveness.
 
-![Pagination](assets/screenshot/pagination_and_loading_image.png)
-
 ---
 
 ### 6. **Custom Loading Effect 🌀✨**
@@ -59,7 +58,7 @@ The app includes a **custom loading effect** that visually enhances the user exp
 
 This feature adds a touch of creativity to the app, making waiting feel less tedious and more engaging.
 
-![Custom Loading Effect](assets/screenshot/start_fetch.png)
+![Custom Loading Effect](assets/screenshots/effect.png)
 
 ---
 
