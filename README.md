@@ -114,7 +114,7 @@ If you would like to contribute to this project, feel free to open a pull reques
 If you have any questions or inquiries, or if you'd like to discuss improvements or suggestions for the project, you can reach us through the following channels:
 
 - **Email**: moanbm123@gmail.com 📧
-- **LinkedIn**: [@CharacterApp](https://www.linkedin.com/in/mohammad-anwar-50102725b/) 🐦
+- **LinkedIn**: [@Mohammed Anwar](https://www.linkedin.com/in/mohammad-anwar-bin-muslim-50102725b/) 🐦
 - **WhatsApp**: [Contact us on WhatsApp](https://wa.me/+917411440342) 📱
 
 ---
