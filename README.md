@@ -78,9 +78,10 @@ This makes it easier for users to troubleshoot problems and continue using the a
 
 ---
 
-### 8. **Refresh Functionality 🔄**
+### 8. Local Storage 📥
+We utilize **local storage** to keep your data available even when you're offline. You can access books and related information without requiring an internet connection, offering a more reliable and consistent experience.
 
-You can update the data easily by tapping the **refresh button**. This feature allows you to load fresh content with just a tap, ensuring that the app always provides the most current information.
+This feature ensures that once you’ve accessed a book or its details, the information will be saved locally on your device, allowing you to continue browsing and reading without interruptions.
 
 ![Refresh](assets/screenshot/refresh.png)
 
