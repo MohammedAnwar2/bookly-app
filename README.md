@@ -50,8 +50,6 @@ To ensure smooth data loading, the app uses **pagination**. As you scroll throug
 
 This feature makes browsing faster by loading smaller sets of data as you scroll, improving the app's responsiveness.
 
-![Pagination](assets/screenshot/pagination_and_loading_image.png)
-
 ---
 
 ### 6. **Custom Loading Effect 🌀✨**
@@ -60,7 +58,7 @@ The app includes a **custom loading effect** that visually enhances the user exp
 
 This feature adds a touch of creativity to the app, making waiting feel less tedious and more engaging.
 
-![Custom Loading Effect](assets/screenshot/start_fetch.png)
+![Custom Loading Effect](assets/screenshots/effect.png)
 
 ---
 
