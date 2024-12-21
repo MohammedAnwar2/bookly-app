@@ -72,8 +72,8 @@ If there are any issues fetching data, such as connection problems, the app will
 This makes it easier for users to troubleshoot problems and continue using the app without confusion.
 
 <div>
-  <img src="assets/screenshots/error1.png" alt="error 1" width="400" height="500">
-  <img src="assets/screenshots/error2.png" alt="error 2" width="400", height="500">
+  <img src="assets/screenshots/error1.png" alt="error 1" width="400" height="700">
+  <img src="assets/screenshots/error2.png" alt="error 2" width="400", height="700">
 </div>
 
 ---
