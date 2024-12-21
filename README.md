@@ -21,8 +21,8 @@ Responsive design ensures that the app automatically adjusts its layout to fit y
 <img src="assets/screenshots/responsive3.png" alt="Responsive 1" width="800">
 
 <div>
-  <img src="assets/screenshots/responsive2.png" alt="Responsive 2" width="400" height="500">
-  <img src="assets/screenshots/responsive1.png" alt="Responsive 3" width="400", height="500">
+  <img src="assets/screenshots/responsive2.png" alt="Responsive 2" width="400" height="600">
+  <img src="assets/screenshots/responsive1.png" alt="Responsive 3" width="400", height="600">
 </div>
 
 ---
@@ -34,8 +34,8 @@ Find books quickly by searching with their titles. Thanks to the **debouncer**, 
 This feature improves the efficiency of your search and eliminates unnecessary delays. The debouncer helps to only trigger searches when you stop typing, ensuring that you get the most relevant results.
 
 <div>
-  <img src="assets/screenshots/search1.png" alt="Search 1" width="400" height="500">
-  <img src="assets/screenshots/search2.png" alt="Search 2" width="400", height="500">
+  <img src="assets/screenshots/search1.png" alt="Search 1" width="400" height="700">
+  <img src="assets/screenshots/search2.png" alt="Search 2" width="400", height="700">
 </div>
 ---
 
