@@ -1,6 +1,6 @@
 import 'package:bookly_app/core/utils/shared/custom_fading_widget.dart';
 import 'package:flutter/material.dart';
-import 'custom_book_item_loading_indicator.dart';
+import '../../../../core/utils/shared/custom_book_image_loading_indicator.dart';
 
 class FeaturedBookListViewLoafingIndicator extends StatelessWidget {
   const FeaturedBookListViewLoafingIndicator({super.key});
