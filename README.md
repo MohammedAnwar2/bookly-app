@@ -83,7 +83,6 @@ We utilize **local storage** to keep your data available even when you're offlin
 
 This feature ensures that once you’ve accessed a book or its details, the information will be saved locally on your device, allowing you to continue browsing and reading without interruptions.
 
-![Refresh](assets/screenshot/refresh.png)
 
 ---
 
